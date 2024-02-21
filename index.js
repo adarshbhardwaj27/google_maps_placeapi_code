@@ -26,7 +26,7 @@ function fillInAddress() {
 
         switch (componentType) {
             case "street_number": {
-                record_data['Billing_Street'] = `${component.long_name},`
+                record_data['Billing_Street'] = `${component.long_name}, `
                 // address1 = `${component.long_name} ${address1}`;
                 break;
             }
@@ -42,7 +42,7 @@ function fillInAddress() {
             //     postcode = `${postcode}-${component.long_name}`;
             //     break;
             // }
-            case "sublocality":
+            case "sublocality_level_1":
                 record_data['Billing_City'] = `${component.long_name}`
                 // document.querySelector("#locality").value = component.long_name;
                 break;
@@ -67,11 +67,9 @@ function fillInAddress() {
             }
         }
     }
-
-    address1Field.value = address1;
-    postalField.value = postcode;
+    // console.log(place);
     console.log(record_data);
-    address2Field.focus();
+    return record_data;
 }
 
 window.initAutocomplete = initAutocomplete;
